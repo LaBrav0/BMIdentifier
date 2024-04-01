@@ -5,10 +5,10 @@ def calculate_bmi(weight, height):
     bmi = weight / (height ** 2)
     return bmi
 
-def categorize_bmi(bmi):
+def weight_bmi(bmi): # Parameters for distinguishing weight classes
     if bmi < 18.5:
         return 'Underweight'
-    elif 18.5 <= bmi < 25:
+    elif 18.4 <= bmi < 25:
         return 'Normal weight'
     elif 25 <= bmi < 30:
         return 'Overweight'
@@ -30,7 +30,7 @@ def main():
     bmi = calculate_bmi(weight, height_meters)
     print('BMI:', bmi)
     
-    category = categorize_bmi(bmi)
+    category = weight_bmi(bmi)
     print('Category:', category)
 
 if __name__ == '__main__':
