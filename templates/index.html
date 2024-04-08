@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMIdentifier</title>
+</head>
+<body>
+    <h1>BMI Calculator</h1> <!--Header for User Interface--> 
+    <form method="post">
+        <label for="weight">Weight:</label>
+        <input type="number" name="weight" id="weight" required>
+        <select name="weight_unit">
+            <option value="lbs">lbs</option> <!--User has the option to select lbs or kg in dropdown menu-->
+            <option value="kg">kg</option>
+        </select><br>
+        <label for="height">Height (in feet):</label> <!--The system will only take entries that are entered in feet(whole numbers)
+        Under the time constraints, however this can be easily revised-->
+        <input type="number" name="height" id="height" required><br>
+        <button type="submit">Calculate BMI</button> <!--User interacts with button to perform calculation-->
+    </form>
+</body>
+</html>
