@@ -3,7 +3,7 @@ stages:
   - build
   - test
   - deploy
-
+#Implemented 3 stages in the pipeline 
 variables:
   ENVIRONMENT: production
 
@@ -30,7 +30,7 @@ lint_job:
    
   allow_failure: true
 
-security_scan_job:
+security_scan:
   stage: test
   script:
     - echo "Scanning for security vulnerabilities..."
