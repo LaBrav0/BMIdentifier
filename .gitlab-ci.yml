@@ -1,1 +1,49 @@
 #Define
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  ENVIRONMENT: production
+
+build_job:
+  stage: build
+  script:
+    - echo "Building the project..."
+  
+  artifacts:
+    paths:
+      - build/
+
+unit_test_job:
+  stage: test
+  script:
+    - echo "Running unit tests..."
+
+  coverage: '/All tests passed/'
+
+lint_job:
+  stage: test
+  script:
+    - echo "Linting the code..."
+   
+  allow_failure: true
+
+security_scan_job:
+  stage: test
+  script:
+    - echo "Scanning for security vulnerabilities..."
+
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying to $ENVIRONMENT environment..."
+   
+  environment:
+    name: $ENVIRONMENT
+    url: https://example.com
+  only:
+    - master
+
