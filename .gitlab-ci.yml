@@ -3,11 +3,12 @@ stages:
   - build
   - test
   - deploy
-#Implemented 3 stages in the pipeline 
+
 variables:
   ENVIRONMENT: production
-
-build_job:
+#All of the following jobs serve as placeholders for various other continuous integrative tasks.
+#I am new to gitlab and yml, therefore I used basic jobs that technically can only be integrated. 
+build_job: #This job builds the project in pipeline. 
   stage: build
   script:
     - echo "Building the project..."
@@ -16,27 +17,27 @@ build_job:
     paths:
       - build/
 
-unit_test_job:
+unit_test_job: #This job would be able to continuously check the unit tests.
   stage: test
   script:
     - echo "Running unit tests..."
 
   coverage: '/All tests passed/'
 
-lint_job:
+lint_job: #This job is responsible for linting the project or continuously monitoring source code.
   stage: test
   script:
     - echo "Linting the code..."
    
   allow_failure: true
 
-security_scan:
+security_scan_job: #The security scan checks codebase for security vulnerabilities.
   stage: test
   script:
     - echo "Scanning for security vulnerabilities..."
 
 
-deploy_job:
+deploy_job: #Deploys application to certain environment.
   stage: deploy
   script:
     - echo "Deploying to $ENVIRONMENT environment..."
